@@ -28,6 +28,7 @@ export function getIncreasingArray(startNumber, endNumber) {
     let arrayResult = [];
     while (counter < endNumber) {
         arrayResult.push(counter);
+        counter += 1;
     }
     return arrayResult;
 }
