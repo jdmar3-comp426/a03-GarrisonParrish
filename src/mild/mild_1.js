@@ -58,7 +58,7 @@ export function countArray(array) {
     const frequencies = {};
     array.forEach(function(item) {
         // record frequencies of each item in the array
-        frequencies = (frequencies[item] || 0) + 1;  // appends to freq value if key exists, or creates it
+        frequencies[item] = (frequencies[item] || 0) + 1;  // appends to freq value if key exists, or creates it
     });
     return frequencies;
 }
