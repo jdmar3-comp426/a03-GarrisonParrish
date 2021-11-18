@@ -69,7 +69,7 @@ export function removeKey(object, key) {
  */
 export function removeKeyNonDestructive(object, key) {
    let {[key]: a, ...rest} = object;  // destructuring assignment, rest is every attribute except for 'key'
-   temp = rest;
+   let temp = rest;
    return temp;
 }
 
