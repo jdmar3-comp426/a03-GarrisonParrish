@@ -68,9 +68,9 @@ export function removeKey(object, key) {
  If only `removeKeyNonDestructive` was called, nothing would have changed.
  */
 export function removeKeyNonDestructive(object, key) {
-   let objectCopy = object;
-   delete objectCopy[key];
-   return objectCopy;
+   let {[key]: a, ...rest} = object;  // destructuring assignment, rest is every attribute except for 'key'
+   temp = rest;
+   return temp;
 }
 
 /**
