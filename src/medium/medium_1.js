@@ -28,7 +28,7 @@ export function getMedian(array) {
     let midpoint = Math.floor(array.length / 2);
     if (array.length % 2 == 0) {
         // even length => midpoint = mean of middle two indices
-        median = array[midpoint] + array[midpoint+1]) / 2;
+        median = (array[midpoint] + array[midpoint+1]) / 2;
     } else {
         // odd length => midpoint = middle value
         median = array[midpoint];
