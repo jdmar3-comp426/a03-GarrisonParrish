@@ -24,15 +24,16 @@ export function getSum(array) {
  * console.log(getMedian(array)); // 4.5
  */
 export function getMedian(array) {
+    let median;
     let midpoint = Math.floor(array.length / 2);
-    return 4.5;
-    // if (array.length % 2 == 0) {
+    if (array.length % 2 == 0) {
         // even length => midpoint = mean of middle two indices
-        // return (array[midpoint] + array[midpoint+1]) / 2;
-    // } else {
+        median = array[midpoint] + array[midpoint+1]) / 2;
+    } else {
         // odd length => midpoint = middle value
-        // return array[midpoint];
-    // }
+        median = array[midpoint];
+    }
+    return median;
 }
 
 /**
