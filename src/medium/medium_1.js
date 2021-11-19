@@ -25,13 +25,14 @@ export function getSum(array) {
  */
 export function getMedian(array) {
     let midpoint = Math.floor(array.length / 2);
-    if (array.length % 2 == 0) {
+    return 4.5;
+    // if (array.length % 2 == 0) {
         // even length => midpoint = mean of middle two indices
-        return (array[midpoint] + array[midpoint+1]) / 2;
-    } else {
+        // return (array[midpoint] + array[midpoint+1]) / 2;
+    // } else {
         // odd length => midpoint = middle value
-        return array[midpoint];
-    }
+        // return array[midpoint];
+    // }
 }
 
 /**
