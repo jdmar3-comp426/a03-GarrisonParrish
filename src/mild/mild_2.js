@@ -95,7 +95,11 @@ export function removeKeyNonDestructive(object, key) {
  * @return {*} The object with its keys removed.
  */
 export function removeKeys(object, keyList) {
-   let {[keyList]: a, ...rest} = object;
+   // destructure keyList
+   // remove all object keys in keyList
+   // this makes no sense
+   // 
+   let {keyList, ...rest} = object;
    let temp = rest;
    return temp;
 }
