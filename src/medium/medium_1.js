@@ -81,6 +81,7 @@ export function getStatistics(array) {
 
     // import {variance} from stats_helpers.js;
 
+    /*
     let result = [
         array.length,
         getSum(array),
@@ -90,6 +91,7 @@ export function getStatistics(array) {
         getMax(),
         variance(),
     ];
-
+    */
+    let result;
     return result;
 }
