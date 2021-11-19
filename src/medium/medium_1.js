@@ -90,7 +90,7 @@ export function getStatistics(array) {
         median: getMedian(array),
         min: getMin(),
         max: getMax(),
-        variance: variance(array, a),
+        variance: variance(array, mean),
         standard_deviation: Math.sqrt(variance)
     };
     return result;
