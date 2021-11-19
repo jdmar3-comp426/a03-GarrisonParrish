@@ -83,15 +83,17 @@ export function getStatistics(array) {
 
     // import {variance} from stats_helpers.js;
 
+    let a = getMean();
+    let varnc = variance(array, a);
     let result = {
         length: array.length,
         sum: getSum(array),
-        mean: getMean(),
+        mean: a,
         median: getMedian(array),
         min: getMin(),
         max: getMax(),
-        variance: variance(array, mean),
-        standard_deviation: Math.sqrt(variance)
+        variance: varnc,
+        standard_deviation: Math.sqrt(varnc)
     };
     return result;
 }
