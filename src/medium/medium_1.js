@@ -92,6 +92,5 @@ export function getStatistics(array) {
         getMax(),
         variance(),
     ];
-    let result;
     return result;
 }
