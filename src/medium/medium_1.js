@@ -80,7 +80,7 @@ export function getStatistics(array) {
         return getSum(array) / array.length;
     }
 
-    import {variance} from stats_helpers.js;
+    // import {variance} from stats_helpers.js;
 
     let result = [
         array.length,
