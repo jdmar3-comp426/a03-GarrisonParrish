@@ -91,7 +91,7 @@ export function getStatistics(array) {
         min: getMin(),
         max: getMax(),
         variance: variance(array, a),
-        standard_deviation: Math.sqrt(variance),
+        standard_deviation: Math.sqrt(variance)
     };
     return result;
 }
