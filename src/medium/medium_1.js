@@ -83,10 +83,11 @@ export function getStatistics(array) {
 
     // import {variance} from stats_helpers.js;
 
+    let a = getMean();
     let result = [
         array.length,
         getSum(array),
-        a = getMean(),
+        a,
         getMedian(array),
         getMin(),
         getMax(),
