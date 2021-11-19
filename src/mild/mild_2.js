@@ -101,7 +101,7 @@ export function removeKeys(object, keyList) {
    // 
    var temp = object;
    keyList.forEach(function(key) {
-      temp = removeKey(temp, key)
+      temp = removeKeyNonDestructive(temp, key)
    })
    return temp;
 }
