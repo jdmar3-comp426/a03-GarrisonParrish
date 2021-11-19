@@ -99,9 +99,9 @@ export function removeKeys(object, keyList) {
    // remove all object keys in keyList
    // this makes no sense
    // 
-   let temp;
+   var temp = object;
    keyList.forEach(function(key) {
-      temp = removeKey(object, key)
+      temp = removeKey(temp, key)
    })
    return temp;
 }
