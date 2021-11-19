@@ -86,11 +86,11 @@ export function getStatistics(array) {
     let result = [
         array.length,
         getSum(array),
-        getMean(),
+        a = getMean(),
         getMedian(array),
         getMin(),
         getMax(),
-        variance(),
+        variance(array, a),
     ];
     return result;
 }
