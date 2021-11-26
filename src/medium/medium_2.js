@@ -96,10 +96,11 @@ export function getMakerHybrids(mpg_data) {
             if (hybrids_arr.some(element => element["make"] == car["make"])) {
                 hybrids_arr["hybrids"].push(car["id"]);  // add the car's id to the hybrids array
             } else {
-                hybrids_arr.push({
+                let push_obj = {
                     make: car["make"], 
                     hybrids: [car["id"]],
-                });
+                }
+                hybrids_arr.push(push_obj);
             }
         }
     });
