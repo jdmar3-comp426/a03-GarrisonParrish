@@ -44,7 +44,7 @@ export function getRatioHybrids(mpg_data) {
     let hybrid_count = 0;
     let total = 0;
     for (const car in mpg_data) {
-        if (car['hybrid'] == true) {
+        if (car["hybrid"] == true) {
             hybrid_count += 1;
         }
         total += 1;
