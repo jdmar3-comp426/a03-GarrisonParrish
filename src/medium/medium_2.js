@@ -98,7 +98,7 @@ export function getMakerHybrids(mpg_data) {
             } else {
                 hybrids_arr.push({
                     make: car["make"], 
-                    hybrid: [car["id"]],
+                    hybrids: [car["id"]],
                 });
             }
         }
