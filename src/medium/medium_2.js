@@ -45,7 +45,7 @@ export function getAvgMpg(mpg_data) {
 export function getAllYearStats(mpg_data) {
     // we now have an array of the years of all cars
     const year_arr = mpg_data.map(car => car["year"]);
-    return year_arr;
+    return getStatistics(year_arr);
 }
 
 export function getRatioHybrids(mpg_data) {
