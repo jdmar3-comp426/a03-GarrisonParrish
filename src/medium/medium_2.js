@@ -93,9 +93,15 @@ export function getMakerHybrids(mpg_data) {
     let hybrids_arr = [];
     mpg_data.forEach(car => {
         if (car["hybrid"] == true) {
-            if (hybrids_arr.some(element => element["make"] == car["make"])) {
-                hybrids_arr["hybrids"].push(car["id"]);  // add the car's id to the hybrids array
-            } else {
+            let new_flag = false;
+            for (let i = 0; i < hybrids_arr.length; i++) {
+                // check if the car's make matches a hybrid in the list
+                if (hybrid["make"] == car["make"]) {
+                    hybrids_arr[index]["hybrids"].push(car["id"]);  // add the car's id to the hybrids array
+                    new_flag = true;
+                }
+            }
+            if (new_flag == false) {
                 let push_obj = {
                     make: car["make"], 
                     hybrids: [car["id"]],
