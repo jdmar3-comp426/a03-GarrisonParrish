@@ -48,7 +48,7 @@ export function getRatioHybrids(mpg_data) {
             hybrid_count += 1;
         }
         total += 1;
-        console.log("Joe")
+        console.log("Joe");
     }
 
     return hybrid_count / total;
