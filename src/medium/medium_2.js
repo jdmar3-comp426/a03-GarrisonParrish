@@ -111,9 +111,6 @@ export function getMakerHybrids(mpg_data) {
         }
     });
     return hybrids_arr;
-    // run through hybrids to determine if they have the same make
-    // if a hybrid's make is already in the list, simply add that hybrid's id to it
-    // otherwise, add a new object to the array with that car's make and id
 }
  /**
  *
@@ -150,5 +147,5 @@ export function getMakerHybrids(mpg_data) {
  */
 export const moreStats = {
     makerHybrids: getMakerHybrids(mpg_data),
-    avgMpgByYearAndHybrid: undefined,
+    avgMpgByYearAndHybrid: 0,
 };
