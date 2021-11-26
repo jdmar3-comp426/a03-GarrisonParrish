@@ -93,7 +93,7 @@ export function getMakerHybrids(mpg_data) {
     let hybrids_arr = [];
     mpg_data.forEach(car => {
         if (car["hybrid"] == true) {
-            if (hybrids_arr.some(element => typeof element["make"] != "undefined")) {
+            if (hybrids_arr.some(element => element["make"] == car["make"])) {
                 hybrids_arr["hybrids"].push(car["id"]);  // add the car's id to the hybrids array
             } else {
                 hybrids_arr.push({
