@@ -97,7 +97,7 @@ export function getMakerHybrids(mpg_data) {
             for (let i = 0; i < hybrids_arr.length; i++) {
                 // check if the car's make matches a hybrid in the list
                 if (hybrids_arr[i]["make"] == car["make"]) {
-                    hybrids_arr[index]["hybrids"].push(car["id"]);  // add the car's id to the hybrids array
+                    hybrids_arr[i]["hybrids"].push(car["id"]);  // add the car's id to the hybrids array
                     new_flag = true;
                 }
             }
