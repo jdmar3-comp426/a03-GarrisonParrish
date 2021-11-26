@@ -42,13 +42,15 @@ export function getAllYearStats(mpg_data) {
 
 export function getRatioHybrids(mpg_data) {
     let hybrid_count = 0;
+    let total = 0;
     for (const car in mpg_data) {
         if (car['hybrid'] == true) {
             hybrid_count += 1;
         }
+        total += 1;
     }
 
-    return hybrid_count / mpg_data.length;
+    return hybrid_count / total;
 }
 
 
