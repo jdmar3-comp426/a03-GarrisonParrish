@@ -88,36 +88,15 @@ export const allCarStats = {
 
 export function getMakerHybrids(mpg_data) {
     // get the hybrids
-    let hybrids_arr = [{
-        make: "Buick",
-        "hybrids": [
-        "2012 Buick Lacrosse Convenience Group",
-        "2012 Buick Lacrosse Leather Group",
-        "2012 Buick Lacrosse Premium I Group",
-        "2012 Buick Lacrosse"
-        ],
-    }];
-    /*
+    let hybrids_arr = [];
     mpg_data.forEach(car => {
         if (car["hybrid"] == true) {
-            let new_flag = false;
-            for (let i = 0; i < hybrids_arr.length; i++) {
-                // check if the car's make matches a hybrid in the list
-                if (hybrids_arr[i]["make"] == car["make"]) {
-                    hybrids_arr[i]["hybrids"].push(car["id"]);  // add the car's id to the hybrids array
-                    new_flag = true;
-                }
-            }
-            if (new_flag == false) {
-                let push_obj = {
-                    make: car["make"], 
-                    hybrids: [car["id"]],
-                }
-                hybrids_arr.push(push_obj);
-            }
+            hybrids_arr.push({
+                make: car["make"],
+                hybrids: [car["id"]]
+            });
         }
     });
-    */
     return hybrids_arr;
 }
  /**
@@ -155,5 +134,5 @@ export function getMakerHybrids(mpg_data) {
  */
 export const moreStats = {
     makerHybrids: getMakerHybrids(mpg_data),
-    avgMpgByYearAndHybrid: 0,
+    avgMpgByYearAndHybrid: undefined,
 };
