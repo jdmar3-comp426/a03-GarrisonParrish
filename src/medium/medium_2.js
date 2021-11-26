@@ -142,6 +142,6 @@ export function getMakerHybrids(mpg_data) {
  * }
  */
 export const moreStats = {
-    makerHybrids: undefined,
+    makerHybrids: getMakerHybrids(mpg_data),
     avgMpgByYearAndHybrid: undefined
 };
