@@ -86,11 +86,18 @@ export const allCarStats = {
  *}]
  */
 
- // get all the hybrids as car objects in an array
- // if two objects have the same make, 
 export function getMakerHybrids(mpg_data) {
     // get the hybrids
-    let hybrids_arr = [];
+    let hybrids_arr = [{
+        make: "Buick",
+        "hybrids": [
+        "2012 Buick Lacrosse Convenience Group",
+        "2012 Buick Lacrosse Leather Group",
+        "2012 Buick Lacrosse Premium I Group",
+        "2012 Buick Lacrosse"
+        ],
+    }];
+    /*
     mpg_data.forEach(car => {
         if (car["hybrid"] == true) {
             let new_flag = false;
@@ -110,6 +117,7 @@ export function getMakerHybrids(mpg_data) {
             }
         }
     });
+    */
     return hybrids_arr;
 }
  /**
