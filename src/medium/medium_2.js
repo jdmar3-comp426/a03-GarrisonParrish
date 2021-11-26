@@ -84,8 +84,31 @@ export const allCarStats = {
  *       "2011 BMW ActiveHybrid 750Li Sedan"
  *     ]
  *}]
- *
- *
+ */
+
+ // get all the hybrids as car objects in an array
+ // if two objects have the same make, 
+export function getMakerHybrids(mpg_data) {
+    // get the hybrids
+    let hybrids_arr = [];
+    mpg_data.forEach(car => {
+        if (car["hybrid"] == true) {
+            if (hybrids_arr.some(element => typeof element["make"] != "undefined")) {
+                hybrids_arr["hybrids"].push(car["id"]);  // add the car's id to the hybrids array
+            } else {
+                hybrids_arr.push({
+                    make: car["make"], 
+                    hybrid: [car["id"]],
+                });
+            }
+        }
+    });
+    return hybrids_arr;
+    // run through hybrids to determine if they have the same make
+    // if a hybrid's make is already in the list, simply add that hybrid's id to it
+    // otherwise, add a new object to the array with that car's make and id
+}
+ /**
  *
  *
  * @param {moreStats.avgMpgByYearAndHybrid} Object where keys are years and each year
