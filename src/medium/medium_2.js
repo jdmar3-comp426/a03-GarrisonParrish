@@ -34,24 +34,21 @@ export function getAvgMpg(mpg_data) {
     }
 
     const avg_obj = {
-        city: getSum(city_mpg_arr) / city_mpg_arr.length,
-        highway: getSum(highway_mpg_arr) / highway_mpg_arr.length,
+        city: (getSum(city_mpg_arr) / city_mpg_arr.length),
+        highway: (getSum(highway_mpg_arr) / highway_mpg_arr.length),
     }
     return avg_obj;
 
 
 }
 
-export function getYearStats(mpg_data) {
-    let year_arr = [];
-    for (const car in mpg_data) {
-        year_arr.push(car['year']);
-    }
+export function getAllYearStats(mpg_data) {
     // we now have an array of the years of all cars
-    return getStatistics(year_arr);
+    const year_arr = mpg_data.map(car => car["year"]);
+    return year_arr;
 }
 
-export function getHybridRatio(mpg_data) {
+export function getRatioHybrids(mpg_data) {
     let hybrid_count = 0;
     for (const car in mpg_data) {
         if (car['hybrid'] == true) {
@@ -65,8 +62,8 @@ export function getHybridRatio(mpg_data) {
 
 export const allCarStats = {
     avgMpg: getAvgMpg(mpg_data),
-    allYearStats: getYearStats(mpg_data),
-    ratioHybrids: getHybridRatio(mpg_data),
+    allYearStats: getAllYearStats(mpg_data),
+    ratioHybrids: getRatioHybrids(mpg_data),
 };
 
 
