@@ -23,19 +23,11 @@ see under the methods section
  */
 
 export function getAvgMpg(mpg_data) {
-    let city_mpg_arr = [];
-    for (const car in mpg_data) {
-        city_mpg_arr.push(car['city_mpg']);
-    }
-
-    let highway_mpg_arr = [];
-    for (const car in mpg_data) {
-        highway_mpg_arr.push(car['highway_mpg']);
-    }
-
+    const city_mpg_arr = mpg_data.map(car => car["city_mpg"]);
+    const highway_mpg_arr = mpg_data(car => car["highway_mpg"]);
     const avg_obj = {
-        city: (getSum(city_mpg_arr) / city_mpg_arr.length),
-        highway: (getSum(highway_mpg_arr) / highway_mpg_arr.length),
+        city: getSum(city_mpg_arr) / city_mpg_arr.length,
+        highway: getSum(highway_mpg_arr) / highway_mpg_arr.length,
     }
     return avg_obj;
 
