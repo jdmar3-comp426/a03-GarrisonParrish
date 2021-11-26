@@ -1,5 +1,6 @@
 import mpg_data from "./data/mpg_data.js";
 import {getStatistics} from "./medium_1.js";
+import {getSum} from "./medium_1.js";
 
 /*
 This section can be done by using the array prototype functions.
@@ -12,17 +13,60 @@ see under the methods section
  * This object contains data that has to do with every car in the `mpg_data` object.
  *
  *
- * @param {allCarStats.avgMpg} Average miles per gallon on the highway and in the city. keys `city` and `highway`
+ * @param {allCarStats.avgMpg} avgMpg - Average miles per gallon on the highway and in the city. keys `city` and `highway`
+ * 
  *
- * @param {allCarStats.allYearStats} The result of calling `getStatistics` from medium_1.js on
+ * @param {allCarStats.allYearStats} allYearStats - result of calling `getStatistics` from medium_1.js on
  * the years the cars were made.
  *
- * @param {allCarStats.ratioHybrids} ratio of cars that are hybrids
+ * @param {allCarStats.ratioHybrids} ratioHybrids - ratio of cars that are hybrids
  */
+
+export function getAvgMpg(mpg_data) {
+    let city_mpg_arr = [];
+    for (const car in mpg_data) {
+        city_mpg_arr.push(car['city_mpg']);
+    }
+
+    let highway_mpg_arr = [];
+    for (const car in mpg_data) {
+        highway_mpg_arr.push(car['highway_mpg']);
+    }
+
+    const avg_obj = {
+        city: getSum(city_mpg_arr) / city_mpg_arr.length,
+        highway: getSum(highway_mpg_arr) / highway_mpg_arr.length,
+    }
+    return avg_obj;
+
+
+}
+
+export function getYearStats(mpg_data) {
+    let year_arr = [];
+    for (const car in mpg_data) {
+        year_arr.push(car['year']);
+    }
+    // we now have an array of the years of all cars
+    return getStatistics(year_arr);
+}
+
+export function getHybridRatio(mpg_data) {
+    let hybrid_count = 0;
+    for (const car in mpg_data) {
+        if (car['hybrid'] == true) {
+            hybrid_count += 1;
+        }
+    }
+
+    return hybrid_count / mpg_data.length;
+}
+
+
 export const allCarStats = {
-    avgMpg: undefined,
-    allYearStats: undefined,
-    ratioHybrids: undefined,
+    avgMpg: getAvgMpg(mpg_data),
+    allYearStats: getYearStats(mpg_data),
+    ratioHybrids: getHybridRatio(mpg_data),
 };
 
 

@@ -55,7 +55,7 @@ export function getMedian(array) {
   variance: 2.6666666666666665,
   standard_deviation: 1.632993161855452
  }
- */
+ */ 
 export function getStatistics(array) {
     function getMin() {
         let min = array[0];
