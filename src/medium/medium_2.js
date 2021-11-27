@@ -84,22 +84,6 @@ export const allCarStats = {
  *       "2011 BMW ActiveHybrid 750Li Sedan"
  *     ]
  *}]
- */
-
-export function getMakerHybrids(mpg_data) {
-    // get the hybrids
-    let hybrids_arr = [];
-    mpg_data.forEach(car => {
-        if (car["hybrid"] == true) {
-            hybrids_arr.push({
-                make: car["make"],
-                hybrids: [car["id"]]
-            });
-        }
-    });
-    return hybrids_arr;
-}
- /**
  *
  *
  * @param {moreStats.avgMpgByYearAndHybrid} Object where keys are years and each year
@@ -132,6 +116,21 @@ export function getMakerHybrids(mpg_data) {
  *
  * }
  */
+
+ export function getMakerHybrids(mpg_data) {
+    // get the hybrids
+    let hybrids_arr = [];
+    mpg_data.forEach(car => {
+        if (car["hybrid"] == true) {
+            hybrids_arr.push({
+                make: car["make"],
+                hybrids: [car["id"]]
+            });
+        }
+    });
+    return hybrids_arr;
+}
+
 export const moreStats = {
     makerHybrids: getMakerHybrids(mpg_data),
     avgMpgByYearAndHybrid: undefined,
