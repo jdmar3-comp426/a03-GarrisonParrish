@@ -18,7 +18,18 @@ queries.
  *
  */
 export function searchHighPower(car_data, minHorsepower, minTorque) {
-
+    results = [];
+    car_data.forEach(car => {
+        if (car["horsepower"] >= minHorsepower && car["torque"] >= minTorque) {
+            results.push(car);
+        } 
+    });
+    // now sort by horsepower in descending order
+    function comparator(a,b) {
+        return parseInt(a["horsepower"]) - parseInt(b["horsepower"]);  // compares horsepowers a < b => result is negative
+    }
+    results.sort(comparator);
+    return results;
 }
 
 
