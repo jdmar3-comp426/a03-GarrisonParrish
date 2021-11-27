@@ -22,9 +22,9 @@ see under the methods section
  * @param {allCarStats.ratioHybrids} ratioHybrids - ratio of cars that are hybrids
  */
 
-export function getAvgMpg(mpg_data) {
-    const city_mpg_arr = mpg_data.map(car => car["city_mpg"]);
-    const highway_mpg_arr = mpg_data.map(car => car["highway_mpg"]);
+export function getAvgMpg(arr) {
+    const city_mpg_arr = arr.map(car => car["city_mpg"]);
+    const highway_mpg_arr = arr.map(car => car["highway_mpg"]);
     const avg_obj = {
         city: getSum(city_mpg_arr) / city_mpg_arr.length,
         highway: getSum(highway_mpg_arr) / highway_mpg_arr.length,
