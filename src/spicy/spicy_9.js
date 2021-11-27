@@ -151,6 +151,7 @@ export const filter = (arr, test) => {
     let result = {};
     result["pass"] = arr.filter(element => !testEven(element));
     result["fail"] = arr.filter(element => testEven(element));
+    return result;
 };
 
 
@@ -159,8 +160,10 @@ export const filter = (arr, test) => {
  *   array and returns true only if all of the even elements in the array are
  *   odd numbers. Use the "everyEven" function in this function.
  */
-export const allEvensAreOdd = (arr) => {
 
+export const allEvensAreOdd = (arr) => {
+    odds_arr = arr.filter(function(element, index) {index % 2 == 1});
+    return everyEven(odds_arr);
 };
 
 
