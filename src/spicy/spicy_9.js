@@ -153,8 +153,8 @@ export const testOdd = (element) => {
 
 export const filter = (arr, test) => {
     let result = {};
-    result["pass"] = arr.filter(element => testOdd(element));
-    result["fail"] = arr.filter(element => !testOdd(element));
+    result["pass"] = arr.filter(element => testOdd(element.length));
+    result["fail"] = arr.filter(element => !testOdd(element.length));
     return result;
 };
 
