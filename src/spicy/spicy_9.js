@@ -93,12 +93,12 @@ export const tenTimesFifty = () => {
  */
 
 export const testEven = (element) => {
-    return ((element % 2 ) + 2 ) % 2  // JS is weird
+    return ((element % 2 ) + 2 ) % 2;  // JS is weird
 }
 
 export const everyEven = (arr, test) => {
     // what is the test for
-    return arr.filter(element => testEven(element));
+    return arr.every(element => testEven(element));  // Array.prototype.every() returns true if every element passed the test
 };
 
 
@@ -148,7 +148,9 @@ export const someEven = (arr, test) => {
  *       -->  { pass: [1, 5, 31], fail: [90] }
  */
 export const filter = (arr, test) => {
-
+    let result = {};
+    result["pass"] = arr.filter(element => !testEven(element));
+    result["fail"] = arr.filter(element => testEven(element));
 };
 
 
