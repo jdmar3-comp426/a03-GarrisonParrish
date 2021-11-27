@@ -146,6 +146,7 @@ export function suckMyNuts(mpg_data) {
 
     let sorted = {};
     Object.entries(cars_by_year_and_type).forEach(([year, hybrid_bool]) => {
+        sorted[year] = {};
         sorted[year]["hybrid"] = getAvgMpg(cars_by_year_and_type[year]["true"]);
         sorted[year]["notHybrid"] = getAvgMpg(cars_by_year_and_type[year]["false"]);
     });
