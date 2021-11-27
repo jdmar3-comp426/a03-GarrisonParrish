@@ -165,13 +165,9 @@ export const filter = (arr, test) => {
  *   odd numbers. Use the "everyEven" function in this function.
  */
 
-export const testEvenIndex = (element, index) => {
-    return index % 2 == 1;
-}
-
 export const allEvensAreOdd = (arr) => {
-    let odds_arr = arr.filter((element, index) => testEvenIndex(index));
-    return everyEven(odds_arr);
+    let evens_arr = arr.filter((element, index) => testEven(index));
+    return everyEven(evens_arr);
 };
 
 
@@ -181,7 +177,8 @@ export const allEvensAreOdd = (arr) => {
  *   array is an odd number. Use the "someEven" function in this function.
  */
 export const anEvenIsOdd = (arr) => {
-
+    let evens_arr = arr.filter((element, index) => testEven(index));
+    return someEven(evens_arr);
 };
 
 
@@ -192,5 +189,6 @@ export const anEvenIsOdd = (arr) => {
  *   pass the test. You must use the filter function.
  */
 export const hasExactly = (arr, test, n) => {
-
+    let filtered_data = filter(arr, test);
+    return filtered_data["pass"].length == n;  // exactly n elements in the 'pass' array
 };
