@@ -18,7 +18,7 @@ queries.
  *
  */
 export function searchHighPower(car_data, minHorsepower, minTorque) {
-    results = [];
+    let results = [];
     car_data.forEach(car => {
         if (car["horsepower"] >= minHorsepower && car["torque"] >= minTorque) {
             results.push(car);
