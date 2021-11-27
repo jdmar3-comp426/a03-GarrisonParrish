@@ -147,10 +147,14 @@ export const someEven = (arr, test) => {
  *    filter([1, 90, 5, 31], x => x % 2 === 1)
  *       -->  { pass: [1, 5, 31], fail: [90] }
  */
+export const testOdd = (element) => {
+    return element % 2 == 1;
+}
+
 export const filter = (arr, test) => {
     let result = {};
-    result["pass"] = arr.filter(element => !testEven(element));
-    result["fail"] = arr.filter(element => testEven(element));
+    result["pass"] = arr.filter(element => testOdd(element));
+    result["fail"] = arr.filter(element => !testOdd(element));
     return result;
 };
 
@@ -161,8 +165,12 @@ export const filter = (arr, test) => {
  *   odd numbers. Use the "everyEven" function in this function.
  */
 
+export const testEvenIndex = (element, index) => {
+    return index % 2 == 1;
+}
+
 export const allEvensAreOdd = (arr) => {
-    odds_arr = arr.filter(function(element, index) {index % 2 == 1});
+    let odds_arr = arr.filter((element, index) => testEvenIndex(index));
     return everyEven(odds_arr);
 };
 
