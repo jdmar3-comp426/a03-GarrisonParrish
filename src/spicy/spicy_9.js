@@ -28,7 +28,7 @@ export const repeat = (fn, n, ...params) => {
  *   10 times.
  */
 export const repeatDemo = () => {
-    return repeat(console.log, 10, "Hello, world")  // hope this works
+    return repeat(console.log, 10, "Hello, world!")  // hope this works
 };
 
 
@@ -91,8 +91,13 @@ export const tenTimesFifty = () => {
  *    everyEven([1, 5, 1, 0, 1], x => x === 1)  <--  returns true
  *    everyEven([1, 1, 0, 1, 1], x => x === 1)  <--  returns false
  */
-export const everyEven = (arr, test) => {
 
+export const testEven = (element) => {
+    return ((element % 2 ) + 2 ) % 2  // JS is weird
+}
+
+export const everyEven = (arr, test) => {
+    return arr.filter(element => test(element));
 };
 
 
@@ -116,7 +121,7 @@ export const everyEven = (arr, test) => {
  *    someEven([0, 0, 0, 0, 0], x => x === 0)  <--  returns true
  */
 export const someEven = (arr, test) => {
-
+    return arr.some(element => test(element));
 };
 
 
