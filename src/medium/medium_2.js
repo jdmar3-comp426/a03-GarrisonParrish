@@ -136,15 +136,7 @@ export function suckMyNuts(mpg_data) {
     mpg_data.forEach(car => {
         years_obj[car["year"]] = {};
     });
-
-    /*
-    years_obj[car["year"]] = {
-        hybrid: {
-            city:
-            
-        }
-    }
-    */
+    return years_obj;
 }
 
 export const moreStats = {
