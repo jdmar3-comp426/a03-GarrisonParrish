@@ -134,7 +134,7 @@ export const allCarStats = {
 export function suckMyNuts(mpg_data) {
     let years_obj = {};
     mpg_data.forEach(car => {
-        years_obj[car["year"]] = {2}
+        years_obj[car["year"]] = {};
     });
 
     /*
