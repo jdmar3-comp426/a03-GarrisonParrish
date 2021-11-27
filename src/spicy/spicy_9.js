@@ -97,7 +97,8 @@ export const testEven = (element) => {
 }
 
 export const everyEven = (arr, test) => {
-    return arr.filter(element => test(element));
+    // what is the test for
+    return arr.filter(element => testEven(element));
 };
 
 
@@ -121,7 +122,7 @@ export const everyEven = (arr, test) => {
  *    someEven([0, 0, 0, 0, 0], x => x === 0)  <--  returns true
  */
 export const someEven = (arr, test) => {
-    return arr.some(element => test(element));
+    return arr.some(element => testEven(element));
 };
 
 
