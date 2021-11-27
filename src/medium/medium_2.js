@@ -141,11 +141,11 @@ export function suckMyNuts(mpg_data) {
     let cars_by_year = groupBy(mpg_data, "year");  // cars sorted by year
     let cars_by_year_and_type = {};
     Object.entries(cars_by_year).forEach(([key, value]) => {
-        cars_by_year_and_type[key] = {
-            hybrid: groupBy(value, "hybrid"),
-        };
+        cars_by_year_and_type[key] = groupBy(value, "hybrid");
+        /*
         cars_by_year_and_type[key]["notHybrid"] = cars_by_year_and_type[key]["false"];
-        delete cars_by_year_and_type[key]["false"];  // what the fuck am I doing
+        delete cars_by_year_and_type[key]["false"];
+        */
         /*
         cars_by_year_and_type[key]["hybrid"] = getAvgMpg(cars_by_year_and_type[key]["hybrid"]);
         cars_by_year_and_type[key]["notHybrid"] = getAvgMpg(cars_by_year_and_type[key]["notHybrid"]);
