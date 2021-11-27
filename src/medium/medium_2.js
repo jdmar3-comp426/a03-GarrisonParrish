@@ -160,6 +160,11 @@ export function suckMyNuts(mpg_data) {
         cars_by_year_and_type[key] = {
             hybrid: groupBy(value, "hybrid"),
         };
+        cars_by_year_and_type[key]["notHybrid"] = cars_by_year_and_type[key]["false"];
+        delete cars_by_year_and_type[key]["false"];  // what the fuck am I doing
+
+        cars_by_year_and_type[key]["hybrid"] = getAvgMpg(cars_by_year_and_type[key]["hybrid"]);
+        cars_by_year_and_type[key]["notHybrid"] = getAvgMpg(cars_by_year_and_type[key]["notHybrid"]);
     });
     // this is such a mindfuck
     return cars_by_year_and_type;
