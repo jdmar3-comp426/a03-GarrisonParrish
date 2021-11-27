@@ -93,7 +93,7 @@ export const tenTimesFifty = () => {
  */
 
 export const testEven = (element) => {
-    return ((element % 2 ) + 2 ) % 2;  // JS is weird
+    return ((element % 2 ) + 2 ) % 2 == 0;  // JS is weird
 }
 
 export const everyEven = (arr, test) => {
@@ -148,7 +148,7 @@ export const someEven = (arr, test) => {
  *       -->  { pass: [1, 5, 31], fail: [90] }
  */
 export const testOdd = (element) => {
-    return element % 2 == 1;
+    return ((element % 2 ) + 2 ) % 2 == 1;
 }
 
 export const filter = (arr, test) => {
