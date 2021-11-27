@@ -98,7 +98,7 @@ export const testEven = (element) => {
 
 export const everyEven = (arr, test) => {
     // what is the test for
-    return arr.every(element => testEven(element));  // Array.prototype.every() returns true if every element passed the test
+    return arr.every(element => !testEven(element));  // Array.prototype.every() returns true if every element passed the test
 };
 
 
