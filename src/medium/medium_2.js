@@ -131,7 +131,23 @@ export const allCarStats = {
     return hybrids_arr;
 }
 
+export function suckMyNuts(mpg_data) {
+    let years_obj = {};
+    mpg_data.forEach(car => {
+        years_obj[car["year"]] = {2}
+    });
+
+    /*
+    years_obj[car["year"]] = {
+        hybrid: {
+            city:
+            
+        }
+    }
+    */
+}
+
 export const moreStats = {
     makerHybrids: getMakerHybrids(mpg_data),
-    avgMpgByYearAndHybrid: undefined,
+    avgMpgByYearAndHybrid: suckMyNuts(mpg_data),
 };
