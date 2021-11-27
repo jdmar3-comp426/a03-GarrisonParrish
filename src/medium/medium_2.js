@@ -132,11 +132,49 @@ export const allCarStats = {
 }
 
 export function suckMyNuts(mpg_data) {
-    let years_obj = {};
+    // loop through cars and sort into hybrids and nonhybrids
+    // sort each by year
+    // hybrids: obj with year keys and car array values
+    // same for non hybrids
+    // getAvgMpg() will return city and highway mpgs for an array of objects
+    // if we sort by year, we can get an array of cars that are hybrid and same year
+    let cars_by_year = groupBy(mpg_data, "year");  // cars sorted by year
+    
+    /*
+    let non_hybrids = [];
+    let hybrids = [];
     mpg_data.forEach(car => {
-        years_obj[car["year"]] = {};
+        if (car["hybrid"] == true) {
+            hybrids.push(car);
+        } else {
+            non_hybrids.push(car);
+        }
     });
-    return years_obj;
+
+    let grouped_hybrids = groupBy(hybrids, "year");  // year: [{obj}, {obj}]
+    let grouped_non_hybrids = groupBy(non_hybrids, "year");
+    */
+    
+    let cars_by_year_and_type = {};
+    Object.entries(cars_by_year).forEach(([key, value]) => {
+        cars_by_year_and_type[key] = {
+            hybrid: groupBy(value, "hybrid"),
+        };
+    });
+    // this is such a mindfuck
+    return cars_by_year_and_type;
+}
+
+function groupBy(objectArray, property) {
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+    return objectArray.reduce(function (acc, obj) {
+      let key = obj[property]
+      if (!acc[key]) {
+        acc[key] = []
+      }
+      acc[key].push(obj)
+      return acc
+    }, {})
 }
 
 export const moreStats = {
