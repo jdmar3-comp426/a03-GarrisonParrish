@@ -139,22 +139,6 @@ export function suckMyNuts(mpg_data) {
     // getAvgMpg() will return city and highway mpgs for an array of objects
     // if we sort by year, we can get an array of cars that are hybrid and same year
     let cars_by_year = groupBy(mpg_data, "year");  // cars sorted by year
-    
-    /*
-    let non_hybrids = [];
-    let hybrids = [];
-    mpg_data.forEach(car => {
-        if (car["hybrid"] == true) {
-            hybrids.push(car);
-        } else {
-            non_hybrids.push(car);
-        }
-    });
-
-    let grouped_hybrids = groupBy(hybrids, "year");  // year: [{obj}, {obj}]
-    let grouped_non_hybrids = groupBy(non_hybrids, "year");
-    */
-    
     let cars_by_year_and_type = {};
     Object.entries(cars_by_year).forEach(([key, value]) => {
         cars_by_year_and_type[key] = {
@@ -162,9 +146,10 @@ export function suckMyNuts(mpg_data) {
         };
         cars_by_year_and_type[key]["notHybrid"] = cars_by_year_and_type[key]["false"];
         delete cars_by_year_and_type[key]["false"];  // what the fuck am I doing
-
+        /*
         cars_by_year_and_type[key]["hybrid"] = getAvgMpg(cars_by_year_and_type[key]["hybrid"]);
         cars_by_year_and_type[key]["notHybrid"] = getAvgMpg(cars_by_year_and_type[key]["notHybrid"]);
+        */
     });
     // this is such a mindfuck
     return cars_by_year_and_type;
