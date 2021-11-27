@@ -142,7 +142,20 @@ export function suckMyNuts(mpg_data) {
     let cars_by_year_and_type = {};
     Object.entries(cars_by_year).forEach(([key, value]) => {
         cars_by_year_and_type[key] = groupBy(value, "hybrid");
-        /*
+    });
+
+    let sorted = {};
+    Object.entries(cars_by_year_and_type).forEach(([year, hybrid_bool]) => {
+        sorted[year]["hybrid"] = getAvgMpg(cars_by_year_and_type[year]["true"]);
+        sorted[year]["notHybrid"] = getAvgMpg(cars_by_year_and_type[year]["false"]);
+    });
+
+    // this is such a mindfuck
+    // we have the cars sorted by year and whether or not they're hybrids. "true" = "hybrid"
+    return sorted;
+}
+
+/*
         cars_by_year_and_type[key]["notHybrid"] = cars_by_year_and_type[key]["false"];
         delete cars_by_year_and_type[key]["false"];
         */
@@ -150,10 +163,6 @@ export function suckMyNuts(mpg_data) {
         cars_by_year_and_type[key]["hybrid"] = getAvgMpg(cars_by_year_and_type[key]["hybrid"]);
         cars_by_year_and_type[key]["notHybrid"] = getAvgMpg(cars_by_year_and_type[key]["notHybrid"]);
         */
-    });
-    // this is such a mindfuck
-    return cars_by_year_and_type;
-}
 
 function groupBy(objectArray, property) {
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
