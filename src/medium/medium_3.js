@@ -18,7 +18,18 @@ queries.
  *
  */
 export function searchHighPower(car_data, minHorsepower, minTorque) {
-
+    let results = [];
+    car_data.forEach(car => {
+        if (car["horsepower"] >= minHorsepower && car["torque"] >= minTorque) {
+            results.push(car);
+        } 
+    });
+    // now sort by horsepower in descending order
+    function comparator(a,b) {
+        return parseInt(a["horsepower"]) - parseInt(b["horsepower"]);  // compares horsepowers a < b => result is negative
+    }
+    results.sort(comparator);
+    return results;
 }
 
 
@@ -33,7 +44,18 @@ export function searchHighPower(car_data, minHorsepower, minTorque) {
  *
  */
 export function searchMpg(car_data, minCity, minHighway) {
-
+    let results = [];
+    car_data.forEach(car => {
+        if (car["city_mpg"] >= minCity && car["highway_mpg"] >= minHighway) {
+            results.push(car);
+        } 
+    });
+    // now sort by horsepower in descending order
+    function comparator(a,b) {
+        return parseInt(a["highway_mpg"]) - parseInt(b["highway_mpg"]);  // compares horsepowers a < b => result is negative
+    }
+    results.sort(comparator);
+    return results;
 }
 
 
@@ -46,7 +68,14 @@ export function searchMpg(car_data, minCity, minHighway) {
  * @returns {[]} array of cars
  */
 export function searchName(car_data, searchTerm) {
-
+    let results = [];
+    car_data.forEach(car => {
+        if (car["id"].toLowerCase().includes(searchTerm.toLowerCase())) {
+            results.push(car);
+        } 
+    });
+    // now sort by horsepower in descending order
+    return results;
 }
 
 
@@ -59,5 +88,16 @@ export function searchName(car_data, searchTerm) {
  * @returns {[]} an array of car objects
  */
 export function searchByYear(car_data, years) {
-
+    let results = [];
+    car_data.forEach(car => {
+        if (years.includes(car["year"])) {
+            results.push(car);
+        } 
+    });
+    // now sort by horsepower in descending order
+    function comparator(a,b) {
+        return parseInt(a["year"]) - parseInt(b["year"]);  // compares horsepowers a < b => result is negative
+    }
+    results.sort(comparator);
+    return results;
 }

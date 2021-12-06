@@ -1,5 +1,5 @@
-import {variance} from "./data/stats_helpers.js";
-
+import { variance } from "./data/stats_helpers.js";
+//
 /**
  * Gets the sum of an array of numbers.
  * @param array
@@ -8,7 +8,9 @@ import {variance} from "./data/stats_helpers.js";
  * prototype functions. Very useful
  */
 export function getSum(array) {
-
+    let sum = 0;
+    array.forEach(element => sum += element);
+    return sum;
 }
 
 
@@ -22,7 +24,17 @@ export function getSum(array) {
  * console.log(getMedian(array)); // 4.5
  */
 export function getMedian(array) {
-
+    let median = 0;
+    let sorted = [...array].sort((a,b) => a - b);  // sort the array before calculating
+    let midpoint = Math.floor(array.length / 2);
+    if ((array.length % 2) == 0) {
+        // even length => midpoint = mean of middle two indices
+        median = (sorted[midpoint] + sorted[midpoint+1]) / 2;
+    } else {
+        // odd length => midpoint = middle value
+        median = sorted[midpoint];
+    }
+    return median;
 }
 
 /**
@@ -43,8 +55,45 @@ export function getMedian(array) {
   variance: 2.6666666666666665,
   standard_deviation: 1.632993161855452
  }
- */
+ */ 
 export function getStatistics(array) {
+    function getMin() {
+        let min = array[0];
+        array.forEach(function(item) {
+            if (item < min) {
+                min = item;
+            }
+        })
+        return min;
+    }
 
+    function getMax() {
+        let max = array[0];
+        array.forEach(function(item) {
+            if (item > max) {
+                max = item;
+            }
+        })
+        return max;
+    }
+
+    function getMean() {
+        return getSum(array) / array.length;
+    }
+
+    // import {variance} from stats_helpers.js;
+
+    let a = getMean();
+    let varnc = variance(array, a);
+    let result = {
+        length: array.length,
+        sum: getSum(array),
+        mean: a,
+        median: getMedian(array),
+        min: getMin(),
+        max: getMax(),
+        variance: varnc,
+        standard_deviation: Math.sqrt(varnc)
+    };
+    return result;
 }
-
